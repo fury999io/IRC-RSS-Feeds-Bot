@@ -29,10 +29,13 @@ def feed(irc):
             message = f"Latest Article: {title} - {url}"
             irc.send(bytes(f"PRIVMSG {channel} :{message}\r\n", "UTF-8"))
             var = title
-
+            
+count = 0
 while True:
     data = irc.recv(2048).decode("UTF-8")
     if "PING" in data:
         irc.send(bytes("PONG " + data.split()[1] + "\r\n", "UTF-8"))
-    feed(irc)
-    time.sleep(120) #Deafult is set to 120 seconds
+        count = count + 1
+    if count > 2:
+        feed(irc)
+        count = 0

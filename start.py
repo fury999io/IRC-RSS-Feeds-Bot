@@ -15,7 +15,7 @@ irc.send(bytes(f"USER {bot_nick} 0 * :{bot_nick}\r\n", "UTF-8"))
 irc.send(bytes(f"NICK {bot_nick}\r\n", "UTF-8"))
 irc.send(bytes(f"JOIN {channel}\r\n", "UTF-8"))
 
-def feed(irc):
+def Feed(irc):
     global var
     rss_url = "" #Paste your feed url
     feed = feedparser.parse(rss_url)
@@ -37,5 +37,5 @@ while True:
         irc.send(bytes("PONG " + data.split()[1] + "\r\n", "UTF-8"))
         count = count + 1
     if count > 2:
-        feed(irc)
+        Feed(irc)
         count = 0

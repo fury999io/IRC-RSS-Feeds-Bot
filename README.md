@@ -1,7 +1,7 @@
 # IRC-RSS-Feeds-Bot
 A bot that sends RSS feed notifications to your IRC channel
 
-## Pre Configuration
+## Program Configuration
 * Set values of the variables as per your case: <br>
 ```server```, ```channel```, ```nick``` <br><br>
 * Set the value of ```feed_url``` to your feed url. <br><br>

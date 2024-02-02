@@ -21,5 +21,8 @@ sudo apt install python3 python3-pip -y
 pip install feedparser
 ```
 ```
+wget https://raw.githubusercontent.com/fury999io/IRC-RSS-Feeds-Bot/main/start.py
+```
+```
 nohup python3 start.py > /dev/null 2>&1 &
 ```

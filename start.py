@@ -2,12 +2,15 @@ import feedparser
 import socket
 import time
 
-var = "" #Do not change the value 
+#Do not change the values
+var = ""  
+count = 0
 
-#Change these accordingly
+#Change the values 
 server = ""
 channel = ""
 nick = ""
+feed_url = ""
 
 irc = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 irc.connect((server, 6667))
@@ -17,7 +20,7 @@ irc.send(bytes(f"JOIN {channel}\r\n", "UTF-8"))
 
 def Feed(irc):
     global var
-    feed_url = "" #Paste your feed url
+    global feed_url
     feed = feedparser.parse(feed_url)
 
     if feed.entries:
@@ -30,7 +33,6 @@ def Feed(irc):
             irc.send(bytes(f"PRIVMSG {channel} :{message}\r\n", "UTF-8"))
             var = title
             
-count = 0
 while True:
     data = irc.recv(2048).decode("UTF-8")
     if "PING" in data:

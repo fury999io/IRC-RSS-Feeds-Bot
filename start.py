@@ -17,8 +17,8 @@ irc.send(bytes(f"JOIN {channel}\r\n", "UTF-8"))
 
 def Feed(irc):
     global var
-    rss_url = "" #Paste your feed url
-    feed = feedparser.parse(rss_url)
+    feed_url = "" #Paste your feed url
+    feed = feedparser.parse(feed_url)
 
     if feed.entries:
         latest_article = feed.entries[0]

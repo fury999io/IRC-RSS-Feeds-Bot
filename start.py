@@ -4,15 +4,15 @@ import time
 
 var = "" #Do not change the value 
 
-#Enter the values
+#Change these accordingly
 server = ""
 channel = ""
-bot_nick = ""
+nick = ""
 
 irc = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 irc.connect((server, 6667))
-irc.send(bytes(f"USER {bot_nick} 0 * :{bot_nick}\r\n", "UTF-8"))
-irc.send(bytes(f"NICK {bot_nick}\r\n", "UTF-8"))
+irc.send(bytes(f"USER {nick} 0 * :{nick}\r\n", "UTF-8"))
+irc.send(bytes(f"NICK {nick}\r\n", "UTF-8"))
 irc.send(bytes(f"JOIN {channel}\r\n", "UTF-8"))
 
 def Feed(irc):
@@ -35,7 +35,7 @@ while True:
     data = irc.recv(2048).decode("UTF-8")
     if "PING" in data:
         irc.send(bytes("PONG " + data.split()[1] + "\r\n", "UTF-8"))
-        count = count + 1
+        count = count + 1 #On libera.chat it seems like PING are sent in intervals of 260 seconds
     if count > 2:
         Feed(irc)
         count = 0

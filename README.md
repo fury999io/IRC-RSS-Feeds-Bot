@@ -4,7 +4,7 @@ A bot that sends RSS feed notifications to your IRC channel
 ## Pre Configuration
 * Set values of the variables as per your case: <br>
 ```server```, ```channel```, ```nick``` <br><br>
-* Set the value of ```rss_url``` to your feed url. <br><br>
+* Set the value of ```feed_url``` to your feed url. <br><br>
 * The interval of fetching feeds depends on the relational statement in the last loop of the program. <br>
 By default the feeds are fetched after **3** PING messages are received from the IRC network. <br>
 On libera.chat network, the interval between two consecutive PING are approximately 260 seconds. <br>

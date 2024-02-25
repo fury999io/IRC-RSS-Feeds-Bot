@@ -32,6 +32,8 @@ def Feed(irc):
             message = f"Latest Article: {title} - {url}"
             irc.send(bytes(f"PRIVMSG {channel} :{message}\r\n", "UTF-8"))
             var = title
+
+Feed(irc)
             
 while True:
     data = irc.recv(2048).decode("UTF-8")
